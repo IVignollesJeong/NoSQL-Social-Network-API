@@ -1,4 +1,4 @@
-const { User, Thought } = require('../models');
+const { User } = require('../models');
 
 module.exports = {
 
@@ -56,7 +56,40 @@ module.exports = {
             console.log(err);
             res.status(500).json(err);
         }
-    }
-};
+    },
 
-// GIT COMMIT -m "CREATED THOUGHTCONTROLLER.js AND USERCONTROLLER.js IN /CONTROLLERS"
+    async addFriend(req, res) {
+        try {
+            const user = await User.findOneAndUpdate(
+                { _id: req.params.userId },
+                { $addToSet: { friends: req.params.friendId } },
+                { new: true }
+            );
+            if (!user) {
+                return res.status(404).json({ message: 'No user exists with this ID' });
+            }
+            res.json(user);
+        } catch (err) {
+            console.log(err);
+            res.status(500).json(err);
+        }
+    },
+
+    async deleteFriend(req, res) {
+        try {
+            const user = await User.findOneAndUpdate(
+                { _id: req.params.userId },
+                { $pull: { friends: req.params.friendId } },
+                { new: true }
+            );
+
+            if (!user) {
+                return res.status(404).json({ message: 'No user exists with this ID' });
+            }
+            res.json(user);
+        } catch (err) {
+            console.log(err);
+            res.status(500).json(err);
+        }
+    },
+};

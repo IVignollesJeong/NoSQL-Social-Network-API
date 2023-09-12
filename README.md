@@ -31,7 +31,11 @@ Source code for the application can be found here: [NoSQL-Social-Network-API cod
 
 
 
-((VIDEO))
+
+
+https://github.com/IVignollesJeong/NoSQL-Social-Network-API/assets/131202032/b8391568-3369-4db2-8ab1-181e218e8e83
+
+
 
 
 

@@ -20,6 +20,7 @@ const reactionSchema = new Schema(
         createdAt: {
             type: Date,
             default: Date.now,
+            // imported NPM package moment will format time and add to the reaction as a timestamp
             get: timestamp => {
                 return moment(timestamp).format('MM-DD-YYYY, HH:mm:ss');
              }

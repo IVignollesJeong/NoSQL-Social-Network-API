@@ -2,7 +2,7 @@ const { User } = require('../models');
 
 module.exports = {
 
-    //get all users
+    // get all users
     async getUsers(req, res) {
         try {
             const users = await User.find();
@@ -13,7 +13,7 @@ module.exports = {
         }
     },
 
-    //get a single user
+    // get a single user by its ID
     async getSingleUser(req, res) {
         try {
             const user = await User.findOne({ _id: req.params.userId })
@@ -32,6 +32,7 @@ module.exports = {
     },
 
 
+    // creates a new user
     async createUser(req, res) {
         try {
             const user = await User.create(req.body);
@@ -42,6 +43,8 @@ module.exports = {
         }
     },
 
+
+    // updates a user
     async updateUser(req, res) {
         try {
             const user = await User.findOneAndUpdate(
@@ -60,6 +63,8 @@ module.exports = {
         }
     },
 
+
+    // adds a user to another user as a friend
     async addFriend(req, res) {
         try {
             const user = await User.findOneAndUpdate(
@@ -77,6 +82,8 @@ module.exports = {
         }
     },
 
+
+    // deletes a friend from a given user
     async deleteFriend(req, res) {
         try {
             const user = await User.findOneAndUpdate(

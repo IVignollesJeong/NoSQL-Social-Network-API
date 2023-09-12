@@ -12,6 +12,7 @@ const userSchema = new Schema(
             type: String,
             unique: true,
             required: true,
+            // regex used to determine a valid email
             match: [/^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/]
 
         },
